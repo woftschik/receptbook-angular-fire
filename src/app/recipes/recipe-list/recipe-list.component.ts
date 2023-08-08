@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.modal';
 
 @Component({
@@ -7,9 +7,13 @@ import { Recipe } from '../recipe.modal';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [
-    new Recipe('A Test Recipe', 'This is a simply a test', 'https://cdn.pixabay.com/photo/2017/07/16/12/07/beef-2509104_1280.jpg'),
-    new Recipe('A Test Recipe', 'This is a simply a test', 'https://cdn.pixabay.com/photo/2017/07/16/12/07/beef-2509104_1280.jpg')
+    new Recipe('Rindfleisch Steak', 'Dieses Rezept zeigt euch, wie dieses Steak perfekt wird.', 'https://cdn.pixabay.com/photo/2017/07/16/12/07/beef-2509104_1280.jpg'),
+    new Recipe('Kalbssteak', 'Mit grünen Spargeln und Morcheln. Schmeckt genial fein.', 'https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg')
   ];
-  message: string = 'Hallo von der Komponente!';
+
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeWasSelected.emit(recipe);
+  }
 }
