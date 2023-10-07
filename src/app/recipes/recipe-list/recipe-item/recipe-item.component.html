@@ -1,8 +1,10 @@
-<a href="#" 
-class="list-group-item clearfix"
-(click)="onSelected()">
-
-    <div class="card mb-3" style="max-width: unset;">
+<a
+style="cursor: pointer;"
+[routerLink]="[index]"
+class="list-group-item clearfix">
+    <div class="card mb-3" 
+        routerLinkActive="bg-primary text-white"
+        style="max-width: unset;">
             <div class="row g-0">
             <div class="col-md-4">
                 <img 
@@ -19,4 +21,4 @@ class="list-group-item clearfix"
             </div>
             </div>
         </div>
-</a> 
+</a>  
